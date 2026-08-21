@@ -22,7 +22,7 @@ const CONFIG = {
 
   // URL worker Cloudflare kamu setelah deploy (lihat cloudflare/worker.js)
   // Contoh: "https://codeflow-worker.username.workers.dev"
-  WORKER_BASE_URL: "https://your-worker-subdomain.workers.dev",
+  WORKER_BASE_URL: "https://codeflow-worker.alif-diaz257.workers.dev/",
 
   // Prefix localStorage supaya tidak bentrok dengan aplikasi lain
   STORAGE_PREFIX: "codeflow_",
