@@ -1,0 +1,13 @@
+name = "codeflow-worker"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# Variabel biasa (tidak rahasia) — boleh ditulis langsung di sini
+[vars]
+GITHUB_CLIENT_ID = "YOUR_GITHUB_CLIENT_ID"
+ALLOWED_ORIGIN = "https://your-deployed-site.example.com"
+
+# Secret (JANGAN ditulis di sini). Setelah `wrangler login`, jalankan:
+#   wrangler secret put TURNSTILE_SECRET_KEY
+#   wrangler secret put GITHUB_CLIENT_SECRET
+# lalu masukkan nilainya saat diminta di terminal.
