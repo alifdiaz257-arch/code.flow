@@ -49,7 +49,8 @@ const CloudflareAuth = (() => {
       sitekey: CONFIG.CLOUDFLARE_TURNSTILE_SITE_KEY,
       theme: document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light',
       callback: (token) => handleToken(token),
-      'error-callback': () => {
+      'error-callback': (code) => {
+        alert('DEBUG error-callback: ' + code);
         Utils.toast('error', 'Verifikasi Turnstile gagal dimuat. Periksa Site Key Anda.', 'Cloudflare');
       },
       'expired-callback': () => {
@@ -87,6 +88,7 @@ const CloudflareAuth = (() => {
       // Jika worker belum dikonfigurasi/di-deploy, beri tahu dengan jelas
       // alih-alih diam-diam lolos — ini bukan mode demo.
       console.error('Turnstile verify error:', err);
+      alert('DEBUG: ' + err.message);
       Utils.toast('error', 'Tidak dapat memverifikasi ke Cloudflare Worker. Pastikan WORKER_BASE_URL sudah dikonfigurasi di js/config.js dan worker sudah di-deploy.', 'Verifikasi Gagal');
       resetProgress();
       setStep(1, 'active');
